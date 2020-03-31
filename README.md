@@ -1,41 +1,35 @@
-# the-module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# got-jsonp [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/got-jsonp/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/got-jsonp)
 
-My awesome module.
+Got JSONP support.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/got-jsonp.png)](https://npmjs.com/package/got-jsonp)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install got-jsonp
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const got = require("got");
+const jsonpGot = got.extend(require("got-jsonp")());
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+(async () => {
+	const { body } = await jsonpGot("https://www.w3schools.com/xml/simple.xml");
+
+	console.log(body);
+	//=> ['No records found']
+})();
 ```
 
 ## API
 
-### theModule(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
+### gotJsonp(options?)
 
 #### options
 
 Type: `object`
 
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
+Options to pass to [unwrap-jsonp](https://github.com/Richienb/unwrap-jsonp#options).

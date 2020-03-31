@@ -1,13 +1,8 @@
 const test = require("ava")
-const theModule = require(".")
+const gotJsonp = require(".")
+const got = require("got").extend(gotJsonp())
 
-test("main", t => {
-	t.throws(() => {
-		theModule(123)
-	}, {
-		instanceOf: TypeError,
-		message: "Expected a string, got number"
-	})
-
-	t.is(theModule("unicorns"), "unicorns & rainbows")
+test("main", async t => {
+	const { body } = await got("https://www.w3schools.com/js/jsonp_demo_db.php")
+	t.deepEqual(body, ["No records found"])
 })

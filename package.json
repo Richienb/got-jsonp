@@ -1,8 +1,8 @@
 {
-	"name": "the-module",
+	"name": "got-jsonp",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Got JSONP support.",
+	"repository": "https://github.com/Richienb/got-jsonp.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
@@ -17,12 +17,25 @@
 		"lint": "xo",
 		"test": "yarn lint && ava"
 	},
-	"keywords": [],
-	"dependencies": {},
+	"keywords": [
+		"jsonp",
+		"parse",
+		"got",
+		"http",
+		"request",
+		"get"
+	],
+	"dependencies": {
+		"unwrap-jsonp": "^1.0.0"
+	},
 	"devDependencies": {
 		"ava": "^3.5.2",
 		"eslint-config-richienb": "^0.4.2",
+		"got": "^10.7.0",
 		"xo": "^0.28.1"
+	},
+	"peerDependencies": {
+		"got": ">=10"
 	},
 	"resolutions": {
 		"eslint": "^6.8.0"

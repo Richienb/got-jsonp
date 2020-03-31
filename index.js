@@ -1,9 +1,15 @@
 "use strict"
 
-module.exports = (input, { postfix = "rainbows" } = {}) => {
-	if (typeof input !== "string") {
-		throw new TypeError(`Expected a string, got ${typeof input}`)
-	}
+const unwrapJsonp = require("unwrap-jsonp")
 
-	return `${input} & ${postfix}`
+const gotJsonp = options => response => {
+	response.body = unwrapJsonp(response.body, options)
+
+	return response
 }
+
+module.exports = options => ({
+	hooks: {
+		afterResponse: [gotJsonp(options)]
+	}
+})
