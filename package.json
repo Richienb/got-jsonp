@@ -1,6 +1,6 @@
 {
 	"name": "got-jsonp",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Got JSONP support.",
 	"repository": "https://github.com/Richienb/got-jsonp.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
